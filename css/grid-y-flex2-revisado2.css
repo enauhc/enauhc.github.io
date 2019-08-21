@@ -1,0 +1,226 @@
+* {
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+figcaption {
+  font-style: italic;
+  font-size: 0.9em;
+  margin-bottom:10px;
+}
+
+/* The grid container */
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+  'header header header header'
+  'middle middle middle right';
+  grid-gap: 10px;
+}
+
+.grid-container2 {
+  display: grid;
+  grid-template-areas:
+  'left middle2 middle2 middle2'
+  'footer footer footer footer';
+  grid-gap: 10px;
+}
+
+.middle,
+.middle2,
+.right,
+.left {
+  padding:10px;
+}
+
+/* Style the left and right column */
+
+.right {
+  grid-area: right;
+}
+
+.left {
+  grid-area: left;
+}
+
+.content-flex {
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+
+/* Style the middle and middle2 column */
+
+.middle {
+  grid-area: middle;
+}
+
+.middle2 {
+  grid-area: middle2;
+  background-color: #aaa;
+  padding: 10px 20px;
+}
+
+.middle2 img {
+  position:relative;
+  float:left;
+  margin: 0px 10px 10px 0px;
+}
+
+.middle p {
+  float: left;
+  text-align: justify;
+  width: 80%;
+  margin-right: 10px;
+}
+
+
+/* Style the footer */
+
+.footer {
+  grid-area: footer;
+  background-color: black;
+  padding: 10px;
+  text-align: center;
+  color:white;
+}
+
+.noticia {
+  padding:10px 10px 10px 0px;
+  flex:40%;
+  margin:2px;
+  background-color: white;
+}
+
+.noticia h3 {
+  margin-bottom:10px;
+}
+
+.leer-mas {
+  float:left;
+  text-align: center;
+  color:black;
+  justify-content: center;
+  width:150px;
+  padding:10px;
+  background-color: white;
+  border:1px solid black;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.leer-mas:hover {
+  background-color: silver;
+}
+
+/* Style the header */
+
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+}
+
+/**** menu ***/
+
+.menu {
+  flex: 40%;
+  background-color: lightgray;
+  align-items: middle;
+}
+
+.menu a {
+  text-decoration: none; color: black;
+}
+
+.menu ul {
+  font-size: 0;
+  list-style-type: none;
+}
+.menu ul li {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333;
+  display: inline-block;
+  padding: 20px;
+  position: relative;
+}
+
+.menu ul li ul {
+  display: none; /* hacemos que se oculte el 2ndo nivel del menu */
+}
+.menu ul li:hover {
+  cursor: pointer;
+  background-color: #f2f2f2;
+}
+.menu ul li:hover ul {
+  display: block; /* Hacemos que se muestre el 2ndo nivel
+  cuando hacemos HOVER en el 1er nivel */
+  margin-top: 20px;
+  width: 600px; /* ampliamos el ancho para que el segundo nivel tenga hueco */
+  left: -40px;
+  position: absolute;
+}
+.menu ul li:hover ul li {
+  display: inline-block; /** esto hace que el 2º nivel se vea en horizontal */
+  background-color: #e7e7e7;
+}
+.menu ul li:hover ul li span {
+  float: right;
+  color: #f9f9f9;
+  background-color: #F03861;
+  padding: 2px 5px;
+  text-align: center;
+  font-size: .8rem;
+  border-radius: 3px;
+}
+.menu ul li:hover ul li:hover {
+  background-color: #e0e0e0;
+}
+.tutorial ul li:hover ul li:hover span {
+  background-color: #ee204e;
+}
+
+/*** social icons ****/
+
+.social {
+  flex:30%;
+  text-align: right;
+  margin-top:15px;
+}
+
+.social a {
+  color: white;
+  text-decoration: none;
+  padding-right:10px;
+}
+
+.social a:hover {color:lightgray;}
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 700px) {
+  .grid-container  {
+      grid-template-areas:
+        'header'
+        'middle'
+        'right';
+  }
+
+  .grid-container2  {
+      grid-template-areas:
+        'left'
+        'middle2'
+        'footer';
+  }
+  .noticia {
+    flex:100%;
+  }
